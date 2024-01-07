@@ -1,14 +1,17 @@
 <template>
-    <h1>{{ name }}</h1>
+    <div>
+        <app-header/>
+        <div>
+            Content
+        </div>
+        <Footer/>
+    </div>
 </template>
 
 <script setup>
-    import {ref} from 'vue';
-    const name = ref('Francis');
+    import Footer from '@/components/header_footer/footer.vue'
 </script>
 
 <style>
-    div {
-        color:red
-    }
+
 </style>
