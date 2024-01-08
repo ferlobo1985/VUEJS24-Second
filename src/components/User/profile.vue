@@ -21,17 +21,28 @@
                 <span>{{ key }}:</span> {{ value }}
             </li>
         </ul>
+        <hr/>
+        <button @click="updateLastname">Change from the child</button>
+        <hr/>
+        <button @click="emit('say-hello')">Say hello</button>
+        <button @click="updateAge(50)">Update age</button>
     </div>
 </template>
 
 <script setup>
+    const emit = defineEmits(['update-lastname','say-hello'])
     const props = defineProps({
         alsoKnownAs: String,
         userLastname: String,
         userAge: Number,
-        userParents: Object
+        userParents: Object,
+        updateAge: Function
     });
-    const name = 'Steve'
+    const name = 'Steve';
+
+    const updateLastname = () => {
+        emit('update-lastname','Michaelson');
+    }
 </script>
 
 <style scoped>
