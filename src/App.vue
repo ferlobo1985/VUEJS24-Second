@@ -24,7 +24,7 @@
 
     const data = reactive({
         name:'Rocket',
-        lastname:'Jones',
+        lastname:'Joness',
         age: 28,
         parents:{
             father:'Mario',
