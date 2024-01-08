@@ -2,22 +2,21 @@
     <div>
         <app-header/>
         <div class="container">
-            <Life
-                v-if="showit"
-            />
+            <button @click="activeComp = Mike">Mike</button>
+            <button @click="activeComp = Steve">Steve</button>
+            <!-- <Mike v-if="activeComp === Mike"/>
+            <Steve v-if="activeComp === Steve"/> -->
+            <component :is="activeComp"></component>
         </div>
     </div>
 </template>
 
 <script setup>
-    import Life from '@/components/Life/index.vue'
-    import { ref } from 'vue';
-    const showit = ref(true);
+    import Mike from '@/components/Players/mike.vue'
+    import Steve from '@/components/Players/steve.vue';
+    import { ref, shallowRef } from 'vue'
 
-    setTimeout(()=>{
-        showit.value = false;
-    },3000)
-
+    const activeComp = shallowRef(Mike);
 
 </script>
 
