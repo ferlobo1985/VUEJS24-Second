@@ -9,14 +9,28 @@
                 <span>Also known:</span> {{ alsoKnownAs }}
             </li>
             <li>
-                <span>Lastname:</span> {{ lastname }}
+                <span>Lastname:</span> {{ userLastname }}
+            </li>
+            <li>
+                <span>Age:</span> {{ userAge }}
+            </li>
+        </ul>
+        <h3>Parents</h3>
+        <ul>
+            <li v-for="(value,key,index) in userParents" :key="index">
+                <span>{{ key }}:</span> {{ value }}
             </li>
         </ul>
     </div>
 </template>
 
 <script setup>
-    const props = defineProps(['alsoKnownAs','lastname']);
+    const props = defineProps({
+        alsoKnownAs: String,
+        userLastname: String,
+        userAge: Number,
+        userParents: Object
+    });
     const name = 'Steve'
 </script>
 

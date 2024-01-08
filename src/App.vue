@@ -4,7 +4,9 @@
         <div class="container">
             <UserProfile
                 :alsoKnownAs="data.name"
-                lastname="Jones"
+                :userLastname="data.lastname"
+                :userAge="data.age"
+                :userParents="data.parents"
             />
             <button @click="updateName">Update name</button>
         </div>
@@ -18,7 +20,13 @@
     import { reactive } from 'vue'
 
     const data = reactive({
-        name:'Rocket'
+        name:'Rocket',
+        lastname:'Jones',
+        age: 28,
+        parents:{
+            father:'Mario',
+            mother:'Martha'
+        }
     });
 
     const updateName = () => {
