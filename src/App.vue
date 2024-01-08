@@ -2,16 +2,16 @@
     <div>
         <app-header/>
         <div class="container">
-            <Cars
-                :cars="cars"
-            />
+            <Cars/>
+            <hr/>
+            <button @click="updateCar">Update</button>
         </div>
     </div>
 </template>
 
 <script setup>
     import Cars from '@/components/Cars/index.vue'
-    import { reactive } from 'vue'
+    import { reactive, provide } from 'vue'
 
     const cars = reactive([
         {model:'F9',brand:'Ferrari'},
@@ -19,6 +19,14 @@
         {model:'Fiesta',brand:'Ford'}
     ])
 
+    const updateCar = () => {
+        cars[0].brand = 'Fiat';
+    }
+
+    provide('cars',{
+        cars,
+        updateCar
+    })
 </script>
 
 <style>
