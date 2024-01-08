@@ -4,15 +4,23 @@
         <div class="container">
             <Cars/>
             <hr/>
-            <button @click="updateCar">Update</button>
+            <CarBrands>
+                <ul>
+                    <li v-for="(brand,index) in brands" :key="index">
+                        {{ brand }}
+                    </li>
+                </ul>
+            </CarBrands>
         </div>
     </div>
 </template>
 
 <script setup>
-    import Cars from '@/components/Cars/index.vue'
+    import Cars from '@/components/Cars/index.vue';
+    import CarBrands from '@/components/Cars/brands.vue'
     import { reactive, provide } from 'vue'
 
+    const brands = reactive(['Mazda','Honda','Renault'])
     const cars = reactive([
         {model:'F9',brand:'Ferrari'},
         {model:'911',brand:'Porsche'},
@@ -30,6 +38,7 @@
 </script>
 
 <style>
+
     body {
         padding: 0;
         margin: 0;
